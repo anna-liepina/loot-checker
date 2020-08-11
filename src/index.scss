@@ -1,0 +1,89 @@
+/**
+ * main file to give single output
+ */
+@import './common';
+@import './media';
+@import './variables';
+
+// @import './component/form/accordion';
+// @import './component/form/form';
+// @import './component/form/input-with-pills';
+// @import './component/form/pill';
+// @import './component/form/search';
+// @import './component/form/suggestions';
+
+// @import './component/button';
+// @import './component/symbol';
+
+@import './component/tree-handler';
+@import './component/tree-node';
+
+.side {
+    &__section {
+        flex: 1 1 50%;
+
+        &--label {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.pattern-input {
+    // flex-basis: 100%;
+    // display: flex;
+    // flex: 1 1 30%;
+    box-sizing: border-box;
+}
+
+.preview-item-picture {
+    max-width: 64px;
+    max-height: 64px;
+}
+.section {
+    display: flex;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.section--pattern {
+    justify-content: space-around;
+}
+.section-title {
+    min-width: 100%;
+}
+.section-wrapper {
+    position: relative;
+    display: flex;
+    flex: 1 1 50%;
+}
+.section-wrapper--content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: #d8eff7;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px blue solid
+}
+.section-button-close-expanded {
+    margin-left: auto;
+}
+.preview-item {
+    display: inline-flex;
+    align-items: center;
+    max-width: 120px;
+    min-width: 120px;
+    font-size: 24px;
+}
+
+textarea {
+    // width: 100%;
+}
+
+#root {
+    display: flex;
+    flex-wrap: wrap;
+}

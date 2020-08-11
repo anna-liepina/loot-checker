@@ -1,0 +1,31 @@
+version: '3'
+services:
+  cwa:
+    container_name: cy-cwa
+    build:
+      context: .
+      dockerfile: cypress.cwa.Dockerfile
+    image: cwa-cypress
+    ports:
+      - 28080:28080
+    environment:
+      - PORT=28080
+    entrypoint:
+      - serve
+    command: -n
+
+  cypress:
+    container_name: cypress
+    build:
+      context: .
+      dockerfile: cypress.Dockerfile
+    image: cypress
+    depends_on:
+      - cwa
+    environment:
+      - CYPRESS_baseUrl=http://cwa:28080
+    entrypoint:
+      - npm
+    command: run test
+    volumes:
+      - ./cypress:/www
