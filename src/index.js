@@ -1,7 +1,5 @@
-import React, { Children } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import csv from 'csv-parser';
-import fs from 'fs';
 import papa from 'papaparse';
 import './index.scss';
 import TreeHandler from './component/tree-handler';
