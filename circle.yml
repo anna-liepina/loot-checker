@@ -1,0 +1,29 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:lts-jessie
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - loot-{{ checksum "package.json" }}
+      - run:
+          name: fetch 'CWA' dependencies
+          command: npm i --verbose
+      - save_cache:
+          key: loot-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+      - run:
+          name: assemble 'CWA' static assets
+          command: npm run build
+
+workflows:
+  version: 2
+  full-coverage:
+    jobs:
+      - jest
+      - cypress
