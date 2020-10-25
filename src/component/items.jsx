@@ -13,6 +13,7 @@ const Items = ({ data }) =>
                                     <img
                                         className="preview-item-picture"
                                         src={`https://render.albiononline.com/v1/item/${item || label}.png?count=${amount}&quality=1`}
+                                        alt={item || label}
                                     />
                             x {amount}
                                 </span>

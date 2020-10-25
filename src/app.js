@@ -3,7 +3,7 @@ import Side from './component/side';
 import Items from './component/items';
 
 export default class App extends PureComponent {
-    constructor({ }) {
+    constructor() {
         super();
 
         this.state = {
@@ -18,7 +18,7 @@ export default class App extends PureComponent {
             rightCache: [],
             rightTree: [],
             rightPlayers: {},
-            tiers: ['t4', 't5', 't6', 't7', 't8', 'extra'].reduce((acc, v) => (acc[v] = true, acc), {}),
+            tiers: ['t4', 't5', 't6', 't7', 't8', 'extra'].reduce((acc, v) => { acc[v] = true; return acc }, {}),
             diff: [],
         };
 
@@ -163,7 +163,7 @@ export default class App extends PureComponent {
 
 
         const keys = Object.keys(patterns);
-        const extra = keys.reduce((acc, v) => (acc.push(patterns[v]), acc), []);
+        const extra = keys.reduce((acc, v) => { acc.push(patterns[v]); return acc; }, []);
         const regex = keys.reduce((acc, v) => {
             if (!tiers[v]) {
                 return acc;
@@ -192,7 +192,7 @@ export default class App extends PureComponent {
                     continue;
                 }
 
-                let deposited = _player && _player[item] || 0
+                let deposited = (_player && _player[item]) || 0
 
                 const amount = player[item] - deposited;
 
@@ -212,7 +212,6 @@ export default class App extends PureComponent {
     }
 
     render() {
-        // debugg   er;
         const { tiers } = this.state;
         return <>
             <div className="section">

@@ -25,5 +25,4 @@ workflows:
   version: 2
   full-coverage:
     jobs:
-      - jest
-      - cypress
+      - build
