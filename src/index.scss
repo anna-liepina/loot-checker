@@ -5,15 +5,6 @@
 @import './media';
 @import './variables';
 
-// @import './component/form/accordion';
-// @import './component/form/form';
-// @import './component/form/input-with-pills';
-// @import './component/form/pill';
-// @import './component/form/search';
-// @import './component/form/suggestions';
-
-// @import './component/button';
-// @import './component/symbol';
 
 @import './component/tree-handler';
 @import './component/tree-node';
@@ -30,9 +21,6 @@
 }
 
 .pattern-input {
-    // flex-basis: 100%;
-    // display: flex;
-    // flex: 1 1 30%;
     box-sizing: border-box;
 }
 
@@ -77,12 +65,6 @@
         min-width: 100%;
     }
 
-    // &-wrapper {
-    //     position: relative;
-    //     display: flex;
-    //     height: 20px;
-    //     flex: 1 1 50%;
-    // }
     &s-wrapper {
         position: relative;
     }
@@ -101,10 +83,20 @@
         background: rgb(239, 239, 239);
     }
 
-    &-button-close-expanded {
-        margin-left: auto;
-        border: none;
-        background: transparent;
+    &-button {
+        &--expand:not(:disabled), &--collapse:not(:disabled) {
+            cursor: pointer;
+        }
+
+        &--expand {
+
+        }
+
+        &--collapse {
+            margin-left: auto;
+            border: none;
+            background: transparent;
+        }
     }
 }
 
