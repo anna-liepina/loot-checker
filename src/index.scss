@@ -36,9 +36,26 @@
     box-sizing: border-box;
 }
 
-.preview-item-picture {
-    max-width: 64px;
-    max-height: 64px;
+.item {
+    position: relative;
+    display: inline-flex;
+
+    &-picture {
+        max-width: 64px;
+        max-height: 64px;
+    }
+
+    &-counter {
+        position: absolute;
+        bottom: 18.5%;
+        right: 18.5%;
+        color: #fff;
+        font-family: opensans;
+        font-size: 11px;
+        text-align: center;
+        text-shadow: 0 -1px 1px #000;
+        line-height: 12px;
+    }
 }
 .section {
     display: flex;
