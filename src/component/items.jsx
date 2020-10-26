@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Items = ({ data, size }) =>
-    <ul>
+    <ul className="item-container">
         {
             data.map(
                 ({ name, items }, i) =>

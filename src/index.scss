@@ -45,6 +45,11 @@
         max-height: 64px;
     }
 
+    &-container {
+        max-height: 10em;
+        overflow: auto;
+    }
+
     &-counter {
         position: absolute;
         bottom: 18.5%;
