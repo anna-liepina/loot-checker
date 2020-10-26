@@ -62,40 +62,47 @@ export default class Side extends PureComponent {
     }
 
     render() {
+        const { cache, data, label, 'data-side': side, tree } = this.props;
+
         return <section className="side__section">
-            <h2>{this.props.label} - {this.props['data-side']}</h2>
-            <SectionWrapper label={<>&#x1f50d;</>} >
-                <TreeHandler placeholder="type here to start search in tree" onFilter={onFilter} data={this.props.tree} onExpand={onExpand} />
-            </SectionWrapper>
-            <SectionWrapper label="review items">
-                <Items data={this.props.cache} />
-            </SectionWrapper>
+            <h2>{label} - {side}</h2>
 
-            <button onClick={this.handleSection}>+</button>
-            {
-                this.props.data.map((v, i) =>
-                    <div key={i} className="side__section">
-                        <label className="side__section--label">
-                            file:
+            <div className="sections-wrapper">
+                <SectionWrapper label={<>&#x1f50d;</>} disabled={!cache.length}>
+                    <TreeHandler placeholder="type here to start search in tree" onFilter={onFilter} data={tree} onExpand={onExpand} />
+                </SectionWrapper>
+                <SectionWrapper label="review items" disabled={!cache.length}>
+                    <Items data={cache} />
+                </SectionWrapper>
+            </div>
+            <ul>
+                {
+                    data.map((v, i) =>
+                        <li key={i} className="side__section">
+                            <label className="side__section--label">
+                                csv logs:
                             <input
-                                type="file"
-                                accept=".csv"
-                                data-section-id={i}
-                                onChange={this.handleFile}
-                            />
-                        </label>
-                        <label className="side__section--label">
-                            logs:
+                                    type="file"
+                                    accept=".csv"
+                                    data-section-id={i}
+                                    onChange={this.handleFile}
+                                    disabled={0}
+                                />
+                            </label>
+                            <label className="side__section--label">
+                                chest logs:
                             <textarea
-                                data-section-id={i}
-                                onChange={this.onPaste}
-                                rows={20}
-                            />
-                        </label>
-                    </div>
-                )
-            }
-
+                                    disabled={0}
+                                    data-section-id={i}
+                                    onChange={this.onPaste}
+                                    rows={10}
+                                />
+                            </label>
+                        </li>
+                    )
+                }
+            </ul>
+            <button onClick={this.handleSection}>+</button>
         </section>;
     }
 }
