@@ -77,11 +77,11 @@ export default class Side extends PureComponent {
             </div>
             <ul>
                 {
-                    data.map((v, i) =>
+                    (0 === data.length ? [null] : data).map((_, i) =>
                         <li key={i} className="side__section">
                             <label className="side__section--label">
                                 csv logs:
-                            <input
+                                <input
                                     type="file"
                                     accept=".csv"
                                     data-section-id={i}
@@ -91,7 +91,7 @@ export default class Side extends PureComponent {
                             </label>
                             <label className="side__section--label">
                                 chest logs:
-                            <textarea
+                                <textarea
                                     disabled={0}
                                     data-section-id={i}
                                     onChange={this.onPaste}

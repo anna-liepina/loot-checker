@@ -22,11 +22,11 @@ export default class SectionWrapper extends PureComponent {
         const { label, children, disabled } = this.props;
 
         return <>
-            <button onClick={this.onToggle} disabled={disabled || isExpanded}>{label}</button>
+            <button className="section-button--expand" onClick={this.onToggle} disabled={disabled || isExpanded}>{label}</button>
             {
                 isExpanded &&
                 <div className="section-content">
-                    <button className="section-button-close-expanded" onClick={this.onToggle}>x</button>
+                    <button className="section-button--collapse" onClick={this.onToggle}>x</button>
                     {children}
                 </div >}
         </>;
