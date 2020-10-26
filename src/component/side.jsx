@@ -64,7 +64,7 @@ export default class Side extends PureComponent {
     render() {
         return <section className="side__section">
             <h2>{this.props.label} - {this.props['data-side']}</h2>
-            <SectionWrapper label="search in tree" >
+            <SectionWrapper label={<>&#x1f50d;</>} >
                 <TreeHandler placeholder="type here to start search in tree" onFilter={onFilter} data={this.props.tree} onExpand={onExpand} />
             </SectionWrapper>
             <SectionWrapper label="review items">
@@ -86,7 +86,7 @@ export default class Side extends PureComponent {
                         </label>
                         <label className="side__section--label">
                             logs:
-                                <textarea
+                            <textarea
                                 data-section-id={i}
                                 onChange={this.onPaste}
                                 rows={20}

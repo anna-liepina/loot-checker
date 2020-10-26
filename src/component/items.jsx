@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Items = ({ data }) =>
+const Items = ({ data, size }) =>
     <ul>
         {
             data.map(
@@ -8,14 +9,14 @@ const Items = ({ data }) =>
                     <li key={i}>
                         <div>{name}</div>
                         {
-                            items.map(({ label, item, amount }, i) =>
-                                <span key={i} className="preview-item">
+                            items.map(({ label, item, amount: a = 1, quality: q = 1}, i) =>
+                                <span key={i} className="item">
                                     <img
-                                        className="preview-item-picture"
-                                        src={`https://render.albiononline.com/v1/item/${item || label}.png?count=${amount}&quality=1`}
+                                        className="item-picture"
+                                        src={`https://render.albiononline.com/v1/item/${item || label}.png?&quality=${q}&size=${size}`}
                                         alt={item || label}
                                     />
-                            x {amount}
+                                    <span className="item-counter">{a}</span>
                                 </span>
                             )
                         }
@@ -24,4 +25,19 @@ const Items = ({ data }) =>
         }
     </ul>;
 
+Items.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string,
+            item: PropTypes.string,
+            amount: PropTypes.number,
+            quality: PropTypes.number
+        })
+    ),
+    size: PropTypes.number,
+};
+
+Items.defaultProps = {
+    size: 64,
+}
 export default Items;
