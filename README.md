@@ -15,6 +15,8 @@
 
 # Loot Checker
 
+[DEMO](https://loot-check.herokuapp.com/)
+
 ### software requirements
 
 if you're using `make` commands, __[docker](https://docs.docker.com/install/)__ and __[docker-compose](https://docs.docker.com/compose/install/)__ are required, and local __[node.js](https://nodejs.org/)__ with __[npm](https://www.npmjs.com/)__ are optional
@@ -28,13 +30,10 @@ if you're using `make` commands, __[docker](https://docs.docker.com/install/)__ 
 
 * [react.js](https://reactjs.org/)
 * [sass](https://sass-lang.com/)
-* [jest](https://facebook.github.io/jest/)
-* [enzyme](http://airbnb.io/enzyme/)
-* [cypress](https://www.cypress.io/)
 
 ### used services
 
-* WIP
+* [heroku](https://www.heroku.com/)
 
 ### how to install
 
